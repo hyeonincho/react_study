@@ -13,9 +13,9 @@ const courseData = [
   { id: 9, title: '몰라', time: Day.Friday,},
 ];
 
-const useCourseStore = () => {
+const useCourse = () => {
   const filterCourseByKeyword = (keyword) => courseData.filter((course) => course.title.indexOf(keyword) !== -1);
-  return {courseData, filterCourseByKeyword};
+  return {filterCourseByKeyword};
 }
 
-export {useCourseStore as default}
+export {useCourse as default}
