@@ -4,22 +4,15 @@ import Course from './Course';
 import {Day} from '../constants/Day';
 
 const CourseTimeTable = () => {
-  const {courselist} = useContext(CourseContext);
-  const filteredList = courselist.filter((course) => course.enroll);
-  const myCourses = Array(5).fill().map((v, index) => {
-    const course = filteredList.find(course => course.time.value === index);
-    if(course) {
-      return course;
-    }
-    return undefined;
-  })
-  const style = {flex : '1 1 auto', display: 'flex', 'justify-content': 'space-around'};
+  const {myCourse} = useContext(CourseContext);
+  const myCourseList = myCourse.courselist;
+  const style = {flex : '1 1 auto', display: 'flex', 'justifyContent': 'space-around'};
   
   return (
     <ul style={style}>
-      {myCourses.map((course,index) => (
-        <li>
-          {Object.values(Day)[index].text}요일
+      {myCourseList.map((course,index) => (
+        <li key={index}>
+          {Object.values(Day)[index]}요일
           {
             course ?
             <Course key={index} course={course} timeVisibility={false}/> :

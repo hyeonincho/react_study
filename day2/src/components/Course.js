@@ -1,17 +1,23 @@
 import React, {useContext} from 'react';
 import CourseContext from '../context/CourseContext';
+import {Day} from '../constants/Day';
 
 const Course = ({course, timeVisibility}) => {
-  const {courseDispatch} = useContext(CourseContext)
-
+  const {myCourse} = useContext(CourseContext)
+  const day = Object.values(Day).indexOf(course.time);
+  const isEnrolled =  myCourse.courselist[day] && 
+                      myCourse.courselist[day].id === course.id;
   return (
     <div>
       <strong>{course.title}</strong>
-      <div style={{display: timeVisibility ? 'block': 'none'}}>{course.time.text}</div>
+      <div style={{display: timeVisibility ? 'block': 'none'}}>{course.time}</div>
       <button type="button" 
-              onClick={()=>courseDispatch({type:'TOGGLE_ENROLLMENT', course})}
+              onClick={()=> isEnrolled ? 
+                myCourse.removeCourse(day) :
+                myCourse.addCourse(course,day)
+              }
       >
-        강의 수강 {course.enroll ? '취소' : '신청'}
+        강의 수강 {isEnrolled ? '취소' : '신청'}
       </button>
     </div>
   );
