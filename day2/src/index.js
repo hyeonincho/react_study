@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CourseManagerApp from './components/CourseManagerApp';
+import CourseManager from './components/CourseManager';
 
 
 
 ReactDOM.render(
-  <CourseManagerApp />,
+  <CourseManager />,
   document.getElementById('root')
 );

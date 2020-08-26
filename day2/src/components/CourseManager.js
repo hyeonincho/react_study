@@ -4,7 +4,7 @@ import CourseTimeTable from './CourseTimeTable';
 import CourseContextProvider from './CourseContextProvider';
 
 
-const CourseManagerApp = () => {
+const CourseManager = () => {
   const style = {display:'flex'}
   return (
     <CourseContextProvider>
@@ -16,4 +16,4 @@ const CourseManagerApp = () => {
   );
 }
 
-export {CourseManagerApp as default}
+export {CourseManager as default}

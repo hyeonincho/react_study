@@ -1,5 +1,4 @@
 import React, {useReducer} from 'react';
-import {courseData} from '../stores/courseData';
 import courseReducer from '../reducers/courseReducer';
 import CourseContext from'../context/CourseContext';
 
@@ -8,7 +7,6 @@ const CourseContextProvider = ({children}) => {
 
   return (
     <CourseContext.Provider value={{
-      courseData,
       myCourse : {courselist, courseDispatch}
     }}>
       {children}
