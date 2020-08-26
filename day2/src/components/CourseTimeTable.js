@@ -5,12 +5,11 @@ import {Day} from '../constants/Day';
 
 const CourseTimeTable = () => {
   const {myCourse} = useContext(CourseContext);
-  const myCourseList = myCourse.courselist;
   const style = {flex : '1 1 auto', display: 'flex', 'justifyContent': 'space-around'};
   
   return (
     <ul style={style}>
-      {myCourseList.map((course,index) => (
+      {myCourse.courselist.map((course,index) => (
         <li key={index}>
           {Object.values(Day)[index]}요일
           {

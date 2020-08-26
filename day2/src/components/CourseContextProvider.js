@@ -1,13 +1,15 @@
-import React from 'react';
-import useCourse from '../hooks/useCourse';
-import useMyCourse from '../hooks/useMyCourse';
+import React, {useReducer} from 'react';
+import {courseData} from '../stores/courseData';
+import courseReducer from '../reducers/courseReducer';
 import CourseContext from'../context/CourseContext';
 
 const CourseContextProvider = ({children}) => {
+  const [courselist, courseDispatch] = useReducer(courseReducer, Array(5).fill());
+
   return (
     <CourseContext.Provider value={{
-      courselist : useCourse(),
-      myCourse : useMyCourse()
+      courseData,
+      myCourse : {courselist, courseDispatch}
     }}>
       {children}
     </CourseContext.Provider>

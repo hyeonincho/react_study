@@ -4,8 +4,8 @@ import Course from './Course';
 
 const CourseList = () => {
   const [keyword, setKeyword ] = useState('');
-  const {courselist} = useContext(CourseContext);
-  const filteredList = courselist.filterCourseByKeyword(keyword);
+  const {courseData} = useContext(CourseContext);
+  const filteredList = courseData.filter((course) => course.title.indexOf(keyword) !== -1)
   const style = {flex: '0 1 300px'}
 
   return (

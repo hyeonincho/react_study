@@ -13,8 +13,8 @@ const Course = ({course, timeVisibility}) => {
       <div style={{display: timeVisibility ? 'block': 'none'}}>{course.time}</div>
       <button type="button" 
               onClick={()=> isEnrolled ? 
-                myCourse.removeCourse(day) :
-                myCourse.addCourse(course,day)
+                myCourse.courseDispatch({type:'REMOVE', day}) :
+                myCourse.courseDispatch({type:'ADD', course,day})
               }
       >
         강의 수강 {isEnrolled ? '취소' : '신청'}
